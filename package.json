@@ -1,0 +1,57 @@
+{
+  "name": "@sample/hapi-swagger-incident",
+  "version": "1.0.0",
+  "description": "Hapi Swagger Incident Project Sample",
+  "main": "server.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test jest --clearCache && NODE_ENV=test jest -i --detectOpenHandles --forceExit",
+    "lint": "standard --verbose | snazzy",
+    "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
+    "fixcode": "standard --fix",
+    "start": "export NODE_ENV=production || set NODE_ENV=production&& node ./index.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "9.0.0",
+    "@hapi/hapi": "19.0.5",
+    "@hapi/hoek": "9.0.2",
+    "@hapi/inert": "6.0.1",
+    "@hapi/joi": "17.1.0",
+    "@hapi/topo": "^5.0.0",
+    "@hapi/vision": "6.0.0",
+    "dotenv": "8.2.0",
+    "glob": "7.1.6",
+    "hapi-api-version": "^2.3.1",
+    "hapi-auth-jwt2": "^8.8.1",
+    "hapi-swagger": "12.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.0.3",
+    "babel-preset-env": "^1.7.0",
+    "faker": "^4.1.0",
+    "husky": "4.2.1",
+    "jest": "25.1.0",
+    "nodemon": "^2.0.2",
+    "snazzy": "8.0.0",
+    "standard": "14.3.1"
+  },
+  "_moduleAliases": {
+    "@sample": "."
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^@sample(.*)$": "<rootDir>$1"
+    }
+  },
+  "engines": {
+    "node": ">= 12.x.x"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
